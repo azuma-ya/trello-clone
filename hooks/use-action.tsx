@@ -1,4 +1,4 @@
-import { ActionState, FieldErrors } from "@/lib/create-safe-actions";
+import type { ActionState, FieldErrors } from "@/lib/create-safe-actions";
 import { useCallback, useState } from "react";
 
 type Action<TInput, TOutput> = (
@@ -49,7 +49,7 @@ export const useAction = <TInput, TOutput>(
         options.onComplete?.();
       }
     },
-    [action, options],
+    [action, options, data],
   );
 
   return {

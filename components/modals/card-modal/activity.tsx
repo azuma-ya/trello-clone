@@ -2,7 +2,7 @@
 
 import ActivityItem from "@/components/activity-item";
 import { Skeleton } from "@/components/ui/skeleton";
-import { AuditLog } from "@prisma/client";
+import type { AuditLog } from "@prisma/client";
 import { ActivityIcon } from "lucide-react";
 
 interface ActivityProps {
@@ -11,10 +11,10 @@ interface ActivityProps {
 
 const Activity = ({ data }: ActivityProps) => {
   return (
-    <div className="flex items-start gap-x-3 w-full">
-      <ActivityIcon className="size-5 mt-0.5 text-neutral-700" />
+    <div className="flex w-full items-start gap-x-3">
+      <ActivityIcon className="mt-0.5 size-5 text-neutral-700" />
       <div className="w-full">
-        <p className="font-semibold text-neutral-700 mb-2">Activity</p>
+        <p className="mb-2 font-semibold text-neutral-700">Activity</p>
         <ol className="mt-2 space-y-4">
           {data.map((item) => (
             <ActivityItem key={item.id} data={item} />
@@ -27,10 +27,10 @@ const Activity = ({ data }: ActivityProps) => {
 
 Activity.Skeleton = function ActivitySkeleton() {
   return (
-    <div className="flex items-start gap-x-3 w-full">
+    <div className="flex w-full items-start gap-x-3">
       <Skeleton className="size-6 bg-neutral-200" />
       <div className="w-full">
-        <Skeleton className="h-6 w-24 mb-2 bg-neutral-200" />
+        <Skeleton className="mb-2 h-6 w-24 bg-neutral-200" />
         <Skeleton className="h-10 w-full bg-neutral-200" />
       </div>
     </div>

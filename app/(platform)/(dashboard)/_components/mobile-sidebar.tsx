@@ -12,7 +12,7 @@ import Sidebar from "./sidebar";
 
 const MobileSidebar = () => {
   const pathname = usePathname();
-  const mobileSidebar = useMobileSidebar();
+  const { onOpen, onClose, isOpen } = useMobileSidebar();
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -20,7 +20,8 @@ const MobileSidebar = () => {
   }, []);
 
   useEffect(() => {
-    mobileSidebar.onClose();
+    onClose();
+    // eslint-disable-next-line
   }, [pathname]);
 
   if (!isMounted) {
@@ -30,14 +31,14 @@ const MobileSidebar = () => {
   return (
     <>
       <Button
-        onClick={mobileSidebar.onOpen}
-        className="block md:hidden mr-2"
+        onClick={onOpen}
+        className="mr-2 block md:hidden"
         variant="ghost"
         size="sm"
       >
         <Menu className="size-4 " />
       </Button>
-      <Sheet open={mobileSidebar.isOpen} onOpenChange={mobileSidebar.onClose}>
+      <Sheet open={isOpen} onOpenChange={onClose}>
         <SheetContent side="left" className="p-2 pt-10">
           <Sidebar storageKey="t-sidebar-mobile-state" />
         </SheetContent>

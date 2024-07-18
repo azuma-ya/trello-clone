@@ -1,7 +1,8 @@
 "use client";
 
 import { useFormStatus } from "react-dom";
-import { Button, ButtonProps } from "../ui/button";
+import type { ButtonProps } from "../ui/button";
+import { Button } from "../ui/button";
 
 interface FormSubmitProps extends ButtonProps {}
 

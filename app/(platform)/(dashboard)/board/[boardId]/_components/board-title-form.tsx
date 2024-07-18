@@ -1,7 +1,8 @@
 "use client";
 
-import { Board } from "@prisma/client";
-import { ElementRef, useRef, useState } from "react";
+import type { Board } from "@prisma/client";
+import type { ElementRef } from "react";
+import { useRef, useState } from "react";
 
 import { updateBoard } from "@/actions/update-board";
 import FormInput from "@/components/form/form-input";
@@ -61,7 +62,7 @@ const BoardTitleForm = ({ data }: BoardTitleFormProps) => {
           id="title"
           onBlur={onBlur}
           defaultValue={title}
-          className="text-lg font-bold px-[7px] py-1 h-7 bg-transparent focus-visible:outline-none focus-visible:ring-transparent border-none"
+          className="h-7 border-none bg-transparent px-[7px] py-1 text-lg font-bold focus-visible:outline-none focus-visible:ring-transparent"
           ref={inputRef}
         />
       </form>
@@ -71,7 +72,7 @@ const BoardTitleForm = ({ data }: BoardTitleFormProps) => {
   return (
     <Button
       onClick={enableEditing}
-      className="font-bold text-lg size-auto p-1 px-2"
+      className="size-auto p-1 px-2 text-lg font-bold"
       variant="transparent"
     >
       {title}

@@ -1,5 +1,6 @@
 import { MAX_FREE_BOARDS } from "@/constants/boards";
-import { db, PrismaTransactionClient } from "@/lib/db";
+import type { PrismaTransactionClient } from "@/lib/db";
+import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
 
 export const incrementAvailableCount = async (db: PrismaTransactionClient) => {

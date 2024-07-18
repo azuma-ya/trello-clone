@@ -1,5 +1,5 @@
 import { schemaForType } from "@/lib/utils";
-import { Card } from "@prisma/client";
+import type { Card } from "@prisma/client";
 import { z } from "zod";
 
 export const UpdateCardOrder = z.object({

@@ -18,6 +18,7 @@ interface FormPickerProps {
 const FormPicker = ({ id, errors }: FormPickerProps) => {
   const { pending } = useFormStatus();
 
+  // eslint-disable-next-line
   const [images, setImages] = useState<Array<Record<string, any>>>([]);
   const [isloading, setIsLoading] = useState(true);
   const [selectedImageId, setSelectedImageId] = useState(null);
@@ -30,6 +31,7 @@ const FormPicker = ({ id, errors }: FormPickerProps) => {
       });
 
       if (result && result.response) {
+        // eslint-disable-next-line
         const newImages = result.response as Array<Record<string, any>>;
         setImages(newImages);
       } else {
@@ -45,19 +47,20 @@ const FormPicker = ({ id, errors }: FormPickerProps) => {
 
   useEffect(() => {
     fetchImages();
+    // eslint-disable-next-line
   }, []);
 
   if (isloading) {
     return (
-      <div className="p-6 flex items-center justify-center">
-        <Loader2 className="size-6 text-sky-700 animate-spin" />
+      <div className="flex items-center justify-center p-6">
+        <Loader2 className="size-6 animate-spin text-sky-700" />
       </div>
     );
   }
 
   return (
     <div className="relative">
-      <div className="grid grid-cols-3 gap-2 mb-2">
+      <div className="mb-2 grid grid-cols-3 gap-2">
         {images.map((image) => (
           <div
             key={image.id}
@@ -82,18 +85,18 @@ const FormPicker = ({ id, errors }: FormPickerProps) => {
             <Image
               fill
               src={image.urls.thumb}
-              className="object-cover rounded-sm"
+              className="rounded-sm object-cover"
               alt="Unsplash image"
             />
             {selectedImageId === image.id && (
-              <div className="absolute inset-y-0 size-full bg-black/30 flex items-center justify-center ">
+              <div className="absolute inset-y-0 flex size-full items-center justify-center bg-black/30 ">
                 <Check className="size-4 text-white" />
               </div>
             )}
             <Link
               href={image.links.html}
               target="_blank"
-              className="opacity-0 group-hover:opacity-100 absolute bottom-0 w-full text-[10px] truncate text-white hover:underline p-1 bg-black/50"
+              className="absolute bottom-0 w-full truncate bg-black/50 p-1 text-[10px] text-white opacity-0 hover:underline group-hover:opacity-100"
             >
               {image.user.name}
             </Link>

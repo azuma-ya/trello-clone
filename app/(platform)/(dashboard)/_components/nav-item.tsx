@@ -39,22 +39,22 @@ const NavItem = ({
   const routes = [
     {
       label: "Boards",
-      icon: <Layout className="size-4 mr-2" />,
+      icon: <Layout className="mr-2 size-4" />,
       href: `/organization/${organization.id}`,
     },
     {
       label: "Activity",
-      icon: <Activity className="size-4 mr-2" />,
+      icon: <Activity className="mr-2 size-4" />,
       href: `/organization/${organization.id}/activity`,
     },
     {
       label: "Settings",
-      icon: <Settings className="size-4 mr-2" />,
+      icon: <Settings className="mr-2 size-4" />,
       href: `/organization/${organization.id}/settings`,
     },
     {
       label: "Billing",
-      icon: <CreditCard className="size-4 mr-2" />,
+      icon: <CreditCard className="mr-2 size-4" />,
       href: `/organization/${organization.id}/billing`,
     },
   ];
@@ -73,7 +73,7 @@ const NavItem = ({
         )}
       >
         <div className="flex items-center gap-x-2">
-          <div className="size-7 relative">
+          <div className="relative size-7">
             <Image
               fill
               src={organization.imageUrl}
@@ -81,7 +81,7 @@ const NavItem = ({
               className="rounded-md object-cover"
             />
           </div>
-          <span className="font-medium text-sm">{organization.name}</span>
+          <span className="text-sm font-medium">{organization.name}</span>
         </div>
       </AccordionTrigger>
       <AccordionContent className="pt-1 text-neutral-700">
@@ -108,8 +108,8 @@ const NavItem = ({
 NavItem.Skeleton = function NavItemSkeleton() {
   return (
     <div className="flex items-center gap-x-2">
-      <div className="size-10 relative shrink-0">
-        <Skeleton className="size-full absolute" />
+      <div className="relative size-10 shrink-0">
+        <Skeleton className="absolute size-full" />
       </div>
       <Skeleton className="h-10 w-full" />
     </div>

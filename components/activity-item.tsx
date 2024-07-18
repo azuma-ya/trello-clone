@@ -1,6 +1,6 @@
 "use client";
 
-import { AuditLog } from "@prisma/client";
+import type { AuditLog } from "@prisma/client";
 import { format } from "date-fns";
 
 import { Avatar, AvatarImage } from "@/components/ui/avatar";

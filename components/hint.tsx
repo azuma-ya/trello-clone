@@ -27,7 +27,7 @@ const Hint = ({
         <TooltipContent
           side={side}
           sideOffset={sideOffset}
-          className="text-xs max-w-[220px] break-words
+          className="max-w-[220px] break-words text-xs
         "
         >
           {description}

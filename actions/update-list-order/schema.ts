@@ -1,5 +1,5 @@
 import { schemaForType } from "@/lib/utils";
-import { List } from "@prisma/client";
+import type { List } from "@prisma/client";
 import { z } from "zod";
 
 export const UpdateListOrder = z.object({

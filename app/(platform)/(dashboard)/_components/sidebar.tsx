@@ -15,6 +15,7 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
+  // eslint-disable-next-line
   const [expanded, setExpanded] = useLocalStorage<Record<string, any>>(
     storageKey,
     {},
@@ -47,7 +48,7 @@ const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
   if (!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading) {
     return (
       <>
-        <div className="flex items-center justify-between mb-2">
+        <div className="mb-2 flex items-center justify-between">
           <Skeleton className="h-10 w-1/2" />
           <Skeleton className="size-10" />
         </div>
@@ -62,7 +63,7 @@ const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
 
   return (
     <>
-      <div className="font-medium text-xs flex items-center mb-1">
+      <div className="mb-1 flex items-center text-xs font-medium">
         <span className="pl-4">Workspaces</span>
         <Button asChild size="icon" variant="ghost" className="ml-auto">
           <Link href="/select-org">

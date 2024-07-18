@@ -11,7 +11,7 @@ import { hasAvailableCount, incrementAvailableCount } from "@/lib/org-limit";
 
 import { checkSubscription } from "@/lib/subscription";
 import { CreateBoard } from "./schema";
-import { InputType, ReturnType } from "./types";
+import type { InputType, ReturnType } from "./types";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();

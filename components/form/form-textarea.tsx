@@ -1,24 +1,25 @@
 "use client";
 
+import FormErrors from "@/components/form/form-error";
+import { Label } from "@/components/ui/label";
+import type { TextareaProps } from "@/components/ui/textarea";
+import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils";
+import { forwardRef } from "react";
+import { useFormStatus } from "react-dom";
+
 interface FormTextareaProps extends TextareaProps {
   id: string;
   label?: string;
   errors?: Record<string, string[] | undefined>;
 }
 
-import FormErrors from "@/components/form/form-error";
-import { Label } from "@/components/ui/label";
-import { Textarea, TextareaProps } from "@/components/ui/textarea";
-import { cn } from "@/lib/utils";
-import { forwardRef } from "react";
-import { useFormStatus } from "react-dom";
-
 const FormTextarea = forwardRef<HTMLTextAreaElement, FormTextareaProps>(
   ({ id, label, disabled, className, errors, ...rest }, ref) => {
     const { pending } = useFormStatus();
     console.log(id);
     return (
-      <div className="space-y-2 w-full">
+      <div className="w-full space-y-2">
         <div className="space-1 w-full">
           {label ? (
             <Label

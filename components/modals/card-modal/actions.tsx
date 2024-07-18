@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useAction } from "@/hooks/use-action";
 import { useCardModal } from "@/hooks/use-card-modal";
-import { CardWithList } from "@/types";
+import type { CardWithList } from "@/types";
 
 interface ActionsProps {
   data: CardWithList;
@@ -55,7 +55,7 @@ const Actions = ({ data }: ActionsProps) => {
   };
 
   return (
-    <div className="space-y-2 mb-2">
+    <div className="mb-2 space-y-2">
       <p className="">Actions</p>
       <Button
         variant="gray"
@@ -64,7 +64,7 @@ const Actions = ({ data }: ActionsProps) => {
         onClick={onCopy}
         disabled={isLoadingCopy}
       >
-        <Copy className="size-4 mr-2" />
+        <Copy className="mr-2 size-4" />
         Copy
       </Button>
       <Button
@@ -74,7 +74,7 @@ const Actions = ({ data }: ActionsProps) => {
         onClick={onDelete}
         disabled={isLoadingDelete}
       >
-        <Trash className="size-4 mr-2" />
+        <Trash className="mr-2 size-4" />
         Delete
       </Button>
     </div>
@@ -83,10 +83,10 @@ const Actions = ({ data }: ActionsProps) => {
 
 Actions.Skeleton = function ActionsSkeleton() {
   return (
-    <div className="space-y-2 mt-2">
-      <Skeleton className="w-20 h-4 bg-neutral-200" />
-      <Skeleton className="w-full h-8 bg-neutral-200" />
-      <Skeleton className="w-full h-8 bg-neutral-200" />
+    <div className="mt-2 space-y-2">
+      <Skeleton className="h-4 w-20 bg-neutral-200" />
+      <Skeleton className="h-8 w-full bg-neutral-200" />
+      <Skeleton className="h-8 w-full bg-neutral-200" />
     </div>
   );
 };

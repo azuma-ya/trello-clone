@@ -1,8 +1,9 @@
 "use client";
 
-import { List } from "@prisma/client";
+import type { List } from "@prisma/client";
 import { MoreHorizontal, X } from "lucide-react";
-import { ElementRef, useRef } from "react";
+import type { ElementRef } from "react";
+import { useRef } from "react";
 import { toast } from "sonner";
 
 import { copyList } from "@/actions/copy-list";
@@ -68,12 +69,12 @@ const ListOptions = ({ onAddCard, data }: ListOptionsProps) => {
         </Button>
       </PopoverTrigger>
       <PopoverContent className="px-0 py-3" side="bottom" align="start">
-        <div className="text-sm font-medium text-center text-neutral-600 pb-4">
+        <div className="pb-4 text-center text-sm font-medium text-neutral-600">
           list options
         </div>
         <PopoverClose ref={closeRef} asChild>
           <Button
-            className="size-auto p-2 absolute top-2 right-2 text-neutral-600 "
+            className="absolute right-2 top-2 size-auto p-2 text-neutral-600 "
             variant="ghost"
           >
             <X className="size-4" />
@@ -81,7 +82,7 @@ const ListOptions = ({ onAddCard, data }: ListOptionsProps) => {
         </PopoverClose>
         <Button
           onClick={onAddCard}
-          className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
+          className="h-auto w-full justify-start rounded-none p-2 px-5 text-sm font-normal"
           variant="ghost"
         >
           Add card...
@@ -91,7 +92,7 @@ const ListOptions = ({ onAddCard, data }: ListOptionsProps) => {
           <input hidden name="boardId" id="boardId" value={data.boardId} />
           <FormSubmit
             variant="ghost"
-            className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
+            className="h-auto w-full justify-start rounded-none p-2 px-5 text-sm font-normal"
           >
             Copy list...
           </FormSubmit>
@@ -102,7 +103,7 @@ const ListOptions = ({ onAddCard, data }: ListOptionsProps) => {
           <input hidden name="boardId" id="boardId" value={data.boardId} />
           <FormSubmit
             variant="ghost"
-            className="rounded-none w-full h-auto p-2 px-5 justify-start font-normal text-sm"
+            className="h-auto w-full justify-start rounded-none p-2 px-5 text-sm font-normal"
           >
             Delete this list
           </FormSubmit>

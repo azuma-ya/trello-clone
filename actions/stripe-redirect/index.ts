@@ -9,8 +9,9 @@ import { absoluteUrl } from "@/lib/utils";
 
 import { revalidatePath } from "next/cache";
 import { StripeRedirect } from "./schema";
-import { InputType, ReturnType } from "./types";
+import type { InputType, ReturnType } from "./types";
 
+// eslint-disable-next-line
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();
   const user = await currentUser();

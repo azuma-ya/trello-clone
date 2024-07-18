@@ -1,12 +1,12 @@
 "use client";
 
-import { AuditLog } from "@prisma/client";
+import type { AuditLog } from "@prisma/client";
 import { useQuery } from "@tanstack/react-query";
 
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useCardModal } from "@/hooks/use-card-modal";
 import { fetcher } from "@/lib/fetcher";
-import { CardWithList } from "@/types";
+import type { CardWithList } from "@/types";
 
 import Actions from "./actions";
 import Activity from "./activity";

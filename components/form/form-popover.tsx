@@ -2,7 +2,8 @@
 
 import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { ElementRef, useRef, type ReactNode } from "react";
+import type { ElementRef } from "react";
+import { useRef, type ReactNode } from "react";
 import { toast } from "sonner";
 
 import { createBoard } from "@/actions/create-board";
@@ -64,12 +65,12 @@ const FormPopover = ({
         side={side}
         sideOffset={sideOffset}
       >
-        <div className="text-sm font-medium text-center text-neutral-600 pb-4">
+        <div className="pb-4 text-center text-sm font-medium text-neutral-600">
           Create board
         </div>
         <PopoverClose ref={buttonRef} asChild>
           <Button
-            className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600"
+            className="absolute right-2 top-2 size-auto p-2 text-neutral-600"
             variant="ghost"
           >
             <X className="size-4" />

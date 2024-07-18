@@ -1,8 +1,8 @@
-import { Board } from "@prisma/client";
-import { z } from "zod";
+import type { Board } from "@prisma/client";
+import type { z } from "zod";
 
-import { CreateBoard } from "@/actions/create-board/schema";
-import { ActionState } from "@/lib/create-safe-actions";
+import type { CreateBoard } from "@/actions/create-board/schema";
+import type { ActionState } from "@/lib/create-safe-actions";
 
 export type InputType = z.infer<typeof CreateBoard>;
 export type ReturnType = ActionState<InputType, Board>;

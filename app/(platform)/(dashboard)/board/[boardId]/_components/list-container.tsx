@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { updateCardOrder } from "@/actions/update-card-order";
 import { updateListOrder } from "@/actions/update-list-order";
 import { useAction } from "@/hooks/use-action";
-import { ListWithCards } from "@/types";
+import type { ListWithCards } from "@/types";
 
 import ListForm from "./list-form";
 import ListItem from "./list-item";
@@ -29,7 +29,7 @@ const ListContainer = ({ boardId, data }: ListContainerProps) => {
   const [orderedData, setOrderdData] = useState(data);
 
   const { execute: executeUpdateListOrder } = useAction(updateListOrder, {
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.success("List reordered");
     },
     onError: (error) => {
@@ -37,7 +37,7 @@ const ListContainer = ({ boardId, data }: ListContainerProps) => {
     },
   });
   const { execute: executeUpdateCardOrder } = useAction(updateCardOrder, {
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.success("Card reordered");
     },
     onError: (error) => {
@@ -49,6 +49,7 @@ const ListContainer = ({ boardId, data }: ListContainerProps) => {
     setOrderdData(data);
   }, [data]);
 
+  // eslint-disable-next-line
   const onDragEnd = (result: any) => {
     const { destination, source, type } = result;
 
@@ -75,7 +76,7 @@ const ListContainer = ({ boardId, data }: ListContainerProps) => {
 
     // User moves card
     if (type === "card") {
-      let newOrderedData = [...orderedData];
+      const newOrderedData = [...orderedData];
 
       // Source and destination list
       const sourceList = newOrderedData.find(
@@ -140,14 +141,14 @@ const ListContainer = ({ boardId, data }: ListContainerProps) => {
           <ol
             {...provided.droppableProps}
             ref={provided.innerRef}
-            className="flex gap-x-3 h-full"
+            className="flex h-full gap-x-3"
           >
             {orderedData.map((list, index) => (
               <ListItem key={list.id} index={index} data={list} />
             ))}
             {provided.placeholder}
             <ListForm />
-            <div className="flex-shrink-0 w-1" />
+            <div className="w-1 shrink-0" />
           </ol>
         )}
       </Droppable>

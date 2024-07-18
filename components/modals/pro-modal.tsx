@@ -28,20 +28,20 @@ const ProModal = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md p-0 overflow-hidden">
-        <div className="aspect-video relative flex items-center justify-center m-4">
+      <DialogContent className="max-w-md overflow-hidden p-0">
+        <div className="relative m-4 flex aspect-video items-center justify-center">
           <Image src="/next.svg" alt="Hero" className="object-contain" fill />
         </div>
         <div
-          className="text-neutral-700 mx-auto space-y-6 p-6
+          className="mx-auto space-y-6 p-6 text-neutral-700
          "
         >
-          <h2 className="font-semibold text-xl">Update to Azello Pro Today!</h2>
+          <h2 className="text-xl font-semibold">Update to Azello Pro Today!</h2>
           <p className="text-xs font-semibold text-neutral-600">
             Explore the best of Azello
           </p>
           <div className="pl-3">
-            <ul className="text-sm list-disc">
+            <ul className="list-disc text-sm">
               <li>Unlimited boards</li>
               <li>Advanced checklists</li>
               <li>Admin and security features</li>

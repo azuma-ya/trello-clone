@@ -34,13 +34,13 @@ const BoardOptions = ({ id }: BoardOptionsProps) => {
           <MoreHorizontal className="size-4" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="px-0 pt-3 pb-3" side="bottom" align="start">
-        <div className="text-sm font-medium text-center text-neutral-600 pb-4">
+      <PopoverContent className="px-0 py-3" side="bottom" align="start">
+        <div className="pb-4 text-center text-sm font-medium text-neutral-600">
           Board actions
         </div>
         <PopoverClose asChild>
           <Button
-            className="size-auto p-2 absolute top-2 right-2 text-neutral-600"
+            className="absolute right-2 top-2 size-auto p-2 text-neutral-600"
             variant="transparent"
           >
             <X className="size-4" />
@@ -50,7 +50,7 @@ const BoardOptions = ({ id }: BoardOptionsProps) => {
           variant="ghost"
           onClick={onDelete}
           disabled={isLoading}
-          className="rounded-none w-full h-auto p-2 px-5 justify-start text-sm"
+          className="h-auto w-full justify-start rounded-none p-2 px-5 text-sm"
         >
           Delete this board
         </Button>

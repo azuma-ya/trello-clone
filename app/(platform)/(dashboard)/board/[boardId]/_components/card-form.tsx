@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { useAction } from "@/hooks/use-action";
 import { Plus, X } from "lucide-react";
 import { useParams } from "next/navigation";
-import { ElementRef, forwardRef, KeyboardEventHandler, useRef } from "react";
+import type { ElementRef, KeyboardEventHandler } from "react";
+import { forwardRef, useRef } from "react";
 import { toast } from "sonner";
 import { useEventListener, useOnClickOutside } from "usehooks-ts";
 
@@ -62,7 +63,7 @@ const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
 
     if (isEditing) {
       return (
-        <form action={onSubmit} className="m-1 py-0.5 px-1 space-y-4">
+        <form action={onSubmit} className="m-1 space-y-4 px-1 py-0.5">
           <FormTextarea
             id="title"
             onKeyDown={onTextareaKeyDown}
@@ -82,14 +83,14 @@ const CardForm = forwardRef<HTMLTextAreaElement, CardFormProps>(
       );
     }
     return (
-      <div className="pt-2 px-2">
+      <div className="px-2 pt-2">
         <Button
           onClick={enableEditing}
-          className="h-auto px-2 py-1.5 fw-full justify-start text-muted-foreground text-sm"
+          className="fw-full h-auto justify-start px-2 py-1.5 text-sm text-muted-foreground"
           size="sm"
           variant="ghost"
         >
-          <Plus className="size-4 mr-2" />
+          <Plus className="mr-2 size-4" />
           Add a card
         </Button>
       </div>

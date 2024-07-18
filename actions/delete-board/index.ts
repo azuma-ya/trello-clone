@@ -12,7 +12,7 @@ import { decrementAvailableCount } from "@/lib/org-limit";
 import { checkSubscription } from "@/lib/subscription";
 import { redirect } from "next/navigation";
 import { DeleteBoard } from "./schema";
-import { InputType, ReturnType } from "./types";
+import type { InputType, ReturnType } from "./types";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();
@@ -26,10 +26,9 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   const isPro = await checkSubscription();
 
   const { id } = data;
-  let board;
 
   try {
-    board = await db.$transaction(async (db) => {
+    await db.$transaction(async (db) => {
       const board = await db.board.delete({
         where: {
           id,

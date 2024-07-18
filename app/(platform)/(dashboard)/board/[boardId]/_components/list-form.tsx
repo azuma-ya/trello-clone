@@ -1,6 +1,7 @@
 import { Plus, X } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
-import { ElementRef, useRef, useState } from "react";
+import type { ElementRef } from "react";
+import { useRef, useState } from "react";
 import { toast } from "sonner";
 import { useEventListener, useOnClickOutside } from "usehooks-ts";
 
@@ -62,13 +63,13 @@ const ListForm = () => {
         <form
           action={onSubmit}
           ref={formRef}
-          className="w-full p-3 rounded-md bg-white space-y-4 shadow-md"
+          className="w-full space-y-4 rounded-md bg-white p-3 shadow-md"
         >
           <FormInput
             ref={inputRef}
             errors={fieldErrors}
             id="title"
-            className="text-sm px-2 py-1 h-7 font-medium border-transparent hover:border-input focus:border-input transition"
+            className="h-7 border-transparent px-2 py-1 text-sm font-medium transition hover:border-input focus:border-input"
             placeholder="Enter list title..."
           />
           <input hidden value={params.boardId} name="boardId" />
@@ -87,9 +88,9 @@ const ListForm = () => {
     <ListWarpper>
       <button
         onClick={enableEditing}
-        className="w-full rounded-md bg-white/80 hover:bg-white/50 transition p-3 flex items-center font-medium text-sm"
+        className="flex w-full items-center rounded-md bg-white/80 p-3 text-sm font-medium transition hover:bg-white/50"
       >
-        <Plus className="size-4 mr-2" />
+        <Plus className="mr-2 size-4" />
         Add a list
       </button>
     </ListWarpper>
