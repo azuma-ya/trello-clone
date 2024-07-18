@@ -1,7 +1,9 @@
 "use client";
 
 import { X } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { ElementRef, useRef, type ReactNode } from "react";
+import { toast } from "sonner";
 
 import { createBoard } from "@/actions/create-board";
 import FormInput from "@/components/form/form-input";
@@ -14,9 +16,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useAction } from "@/hooks/user-action";
-import { useRouter } from "next/navigation";
-import { toast } from "sonner";
+import { useAction } from "@/hooks/use-action";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 interface FormPopover {
   children: ReactNode;
@@ -33,6 +34,7 @@ const FormPopover = ({
 }: FormPopover) => {
   const router = useRouter();
   const buttonRef = useRef<ElementRef<"button">>(null);
+  const onOpen = useProModal((state) => state.onOpen);
 
   const { execute, fieldErrors } = useAction(createBoard, {
     onSuccess: (data) => {
@@ -43,6 +45,7 @@ const FormPopover = ({
     onError: (error) => {
       console.error(error);
       toast.error(error);
+      onOpen();
     },
   });
 

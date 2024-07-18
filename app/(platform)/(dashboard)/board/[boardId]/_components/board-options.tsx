@@ -8,7 +8,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useAction } from "@/hooks/user-action";
+import { useAction } from "@/hooks/use-action";
 import { MoreHorizontal, X } from "lucide-react";
 import { toast } from "sonner";
 

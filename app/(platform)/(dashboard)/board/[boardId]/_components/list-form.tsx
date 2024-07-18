@@ -8,7 +8,7 @@ import { createList } from "@/actions/create-list";
 import FormInput from "@/components/form/form-input";
 import FormSubmit from "@/components/form/form-submit";
 import { Button } from "@/components/ui/button";
-import { useAction } from "@/hooks/user-action";
+import { useAction } from "@/hooks/use-action";
 
 import ListWarpper from "./list-wrapper";
 

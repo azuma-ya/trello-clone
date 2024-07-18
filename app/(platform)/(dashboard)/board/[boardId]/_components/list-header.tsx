@@ -7,14 +7,15 @@ import { useEventListener } from "usehooks-ts";
 
 import { updateList } from "@/actions/update-list";
 import FormInput from "@/components/form/form-input";
-import { useAction } from "@/hooks/user-action";
+import { useAction } from "@/hooks/use-action";
 
 import ListOptions from "./list-options";
 interface ListHeaderProps {
+  onAddCard: () => void;
   data: List;
 }
 
-const ListHeader = ({ data }: ListHeaderProps) => {
+const ListHeader = ({ onAddCard, data }: ListHeaderProps) => {
   const [title, setTilte] = useState(data.title);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -94,7 +95,7 @@ const ListHeader = ({ data }: ListHeaderProps) => {
           {title}
         </div>
       )}
-      <ListOptions onAddCard={() => {}} data={data} />
+      <ListOptions onAddCard={onAddCard} data={data} />
     </div>
   );
 };

@@ -6,7 +6,7 @@ import { ElementRef, useRef, useState } from "react";
 import { updateBoard } from "@/actions/update-board";
 import FormInput from "@/components/form/form-input";
 import { Button } from "@/components/ui/button";
-import { useAction } from "@/hooks/user-action";
+import { useAction } from "@/hooks/use-action";
 import { toast } from "sonner";
 
 interface BoardTitleFormProps {

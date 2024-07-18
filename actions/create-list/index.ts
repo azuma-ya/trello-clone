@@ -1,8 +1,10 @@
 "use server";
 
 import { auth } from "@clerk/nextjs/server";
+import { ACTION, ENTITY_TYPE } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 
+import { createAuditLog } from "@/lib/create-audit-log";
 import { createSafeAction } from "@/lib/create-safe-actions";
 import { db } from "@/lib/db";
 
@@ -49,12 +51,23 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 
     const newOrder = lastList ? lastList.order + 1 : 1;
 
-    list = await db.list.create({
-      data: {
-        title,
-        boardId,
-        order: newOrder,
-      },
+    list = await db.$transaction(async (db) => {
+      const list = await db.list.create({
+        data: {
+          title,
+          boardId,
+          order: newOrder,
+        },
+      });
+
+      await createAuditLog(db, {
+        entityId: list.id,
+        entityTitle: list.title,
+        entityType: ENTITY_TYPE.LIST,
+        action: ACTION.CREATE,
+      });
+
+      return list;
     });
   } catch (error) {
     return {

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
-import { useMobileSidebar } from "@/hooks/user-mobile-side";
+import { useMobileSidebar } from "@/hooks/use-mobile-side";
 
 import Sidebar from "./sidebar";
 
